@@ -37,23 +37,25 @@ export class MineComponent implements OnInit {
     this._hasAnswered = true;
     if (this.answerGiven == this._grabProblem.answer){
       this._httpService.coinCount += 1;
-      this._coinCount = this._httpService.coinCount;
+      this._coinCount = Number(this._httpService.coinCount);
       console.log("Current Coin Count:", this._httpService.coinCount);
       this._status = "Congratulations. You earned a coin."
       this._httpService.valueChange("Mine")
       this._httpService.transactions.push({
+        id: this._httpService.id,
         action: "Mine",
         amount: 1,
         value: this._httpService.value
       })
+      this._httpService.id ++;
       console.log("Current Coin Value:", this._httpService.value);
       this.grabProblem();
-      this.answerGiven=null;
     }
     else{
       this._status = "Sorry. You answered incorrectly."
       this.grabProblem();
     }
+    this.answerGiven = null;
   }
 
 }

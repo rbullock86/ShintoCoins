@@ -25,9 +25,7 @@ export class LedgerComponent implements OnInit {
     console.log("Got Transactions:", this._allTransactions);
   }
 
-  getDetails(){
-    this._route.params.subscribe((params: Params) => {
-      console.log(params['id']) // *********** NEEDS FIXIN!!!! ***************************8
-    });
+  getDetails(id){
+    this._router.navigate(['/details/'+id]);
   }
 }

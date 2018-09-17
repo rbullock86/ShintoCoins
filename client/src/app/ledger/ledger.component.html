@@ -6,14 +6,16 @@
 <table>
   
   <tr>
+    <th>ID</th>
     <th>Action</th>
     <th>Amount</th>
     <th>Value</th>
   </tr>
   <tr *ngFor="let transaction of _allTransactions">
+    <td>{{transaction.id}}</td>
     <td>{{transaction.action}}</td>
     <td>{{transaction.amount}}</td>
     <td>{{transaction.value}}</td>
-    <button>Details</button>
+    <button (click)="getDetails(transaction.id)">Details</button>
   </tr>
 </table>

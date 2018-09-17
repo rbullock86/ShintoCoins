@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  _transaction;
+  constructor(
+    private _httpService: HttpService,
+    private _route: ActivatedRoute,
+    private _router: Router
+    ) { }
 
   ngOnInit() {
+    this._route.params.subscribe((params: Params) => {
+      console.log("Transaction #",params['id'])
+      let id = params['id'];
+      this._transaction = this._httpService.getTransaction(id);
+      console.log(this._transaction);
+    });
   }
 
 }

@@ -6,9 +6,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  value;
+  balance: number;
+  value: number;
   transactions = [];
-  coinCount;
+  coinCount: number;
+  id: number;
+
   problems = [
     {question: "What is 4 + 6?", answer: 10},
     {question: "What is your quest?", answer: 74207402394023943209},
@@ -19,6 +22,8 @@ export class HttpService {
     this.value = 10;
     this.transactions = []; 
     this.coinCount = 0;
+    this.balance = 20.00;
+    this.id = 1;
   }
 
   getProblems(){
@@ -35,13 +40,22 @@ export class HttpService {
 
   valueChange(action){
     if(action == "Mine"){
-      this.value = (this.value*(.98)).toFixed(2);
+      this.value = Number((this.value*(.98)).toFixed(2));
     }
     else if(action =="Sell"){
-      this.value = (this.value*(.96)).toFixed(2);
+      this.value = Number((this.value*(.96)).toFixed(2));
     }
     else if(action =="Buy"){
-      this.value = (this.value*(1.04)).toFixed(2);
+      this.value = Number((this.value*(1.04)).toFixed(2));
     }
+  }
+
+  getTransaction(id){
+    for(let i =0; i < this.transactions.length; i++){
+      if (this.transactions[i].id == id){
+        return this.transactions[i];
+      }
+    }
+    return null;
   }
 }
