@@ -1,0 +1,19 @@
+<h1>Browse the Ledger</h1>
+<h3>Here you can browse all ShintoCoin transactions.</h3>
+
+<h3>ShintoCoin Ledger</h3>
+
+<table>
+  
+  <tr>
+    <th>Action</th>
+    <th>Amount</th>
+    <th>Value</th>
+  </tr>
+  <tr *ngFor="let transaction of _allTransactions">
+    <td>{{transaction.action}}</td>
+    <td>{{transaction.amount}}</td>
+    <td>{{transaction.value}}</td>
+    <button>Details</button>
+  </tr>
+</table>

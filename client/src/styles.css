@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    margin: 25px;
+    padding: 25px;
+    border: solid 2px black;
+    border-radius: 10px;
+    width: 650px;
+    line-height: 30px;
+}
+
+.navbar {
+    display: inline-block;
+    margin: 15px;
+}
+
+.topbar {
+    border-bottom: solid 2px black;
+    margin-bottom: 15px;
+}
+
+.logo {
+    display: inline-block
+}
+
+button {
+    background: lightgray;
+    border-radius: 4px;
+    margin: 5px;
+    font-size: 20px;
+    padding: 4px;
+}
+
+input {
+    height: 30px;
+}
+
+table {
+    text-align: center;
+}
+
+td {
+    padding: 5px 15px;
+}
+
+table button {
+    font-size:  14px;
+}
